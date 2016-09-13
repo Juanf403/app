@@ -1,0 +1,22 @@
+<ion-view class="browse-view" view-title="{{ categoria }}">
+  <ion-content>
+    <div class="list">
+      <div class="item item-divider">
+        <i class="icon ion-grid"></i> Categorias
+      </div>
+      <div class="row categories-outer">
+        <div ng-repeat="sub in subcategorias" class="col col-50 category-item-outer">
+          <a ui-sref="app.category_feed({ catid: idcategoria, subid: sub.id })">
+            <div class="category-item-wrapper">
+              <div class="category-item-content" ng-init="bg_img = sub.imagen">
+                <div multi-bg="[bg_img]" interval="3000" helper-class="category-with-image">
+                  <h1 class="category-title">{{sub.subcategoria}}</h1>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

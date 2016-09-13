@@ -1,0 +1,40 @@
+<ion-view view-title="Configración" class="settings-view">
+  <ion-content>
+    <div class="list">
+      <div class="item item-divider title">
+        Mi cuenta
+      </div>
+      <a class="item settings-option">
+        Editar Perfil
+        <span class="item-note">
+          <i class="icon ion-ios-arrow-right"></i>
+        </span>
+      </a>
+      <a class="item settings-option">
+        Cambiar Contraseña
+        <span class="item-note">
+          <i class="icon ion-ios-arrow-right"></i>
+        </span>
+      </a>
+      <div class="item item-divider title">
+        Mas
+      </div>
+      <a class="item settings-option" ng-click="showTerms()">
+        <!-- <i class="icon ion-ios-information-outline"></i> -->
+        Terminos & Condiciones
+      </a>
+      <a class="item settings-option" ng-click="showPrivacyPolicy()">
+        <!-- <i class="icon ion-ios-locked-outline"></i> -->
+        Politica de Privacidad
+      </a>
+      <a class="item settings-option">
+        <!-- <i class="icon ion-ios-help-outline"></i> -->
+        Comercial
+      </a>
+      <a class="item settings-option" ui-sref="facebook-sign-in">
+        <!-- <i class="icon ion-ios-close-outline"></i> -->
+        Cerrar Sesion
+      </a>
+    </div>
+  </ion-content>
+</ion-view>

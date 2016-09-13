@@ -1,0 +1,40 @@
+<ion-modal-view class="modal-view legal-view">
+	<ion-header-bar>
+		<h1 class="title modal-title">Subir publicación</h1>
+		<a class="button button-clear" ng-click="escribir_publicacion.hide()"><span class="icon ion-close"></span></a>
+	</ion-header-bar>
+	<ion-content class="padding">
+        <div class="row">
+            <div class="col">
+                <form name="escribirPublicacion" class="" novalidate>
+                    <div class="form-fields-outer list list-inset">
+                        <label class="item item-input item-select">
+                            <div class="input-label">Marca</div>
+                            <select>
+                                <option>chevrolet</option>
+                                <option selected>ford</option>
+                            </select>
+                        </label>
+                        <label class="item item-input item-select">
+                            <div class="input-label">Modelo</div>
+                            <select>
+                                <option>chevrolet</option>
+                                <option selected>ford</option>
+                            </select>
+                        </label>
+                        <label class="item item-input">
+                          <input type="text" placeholder="Nombre" name="titulo" ng-model="form.titulo" required>
+                        </label>
+                        <label class="item item-input">
+                          <textarea placeholder="Descripcion" name="descripcion" style="height:250px;" ng-model="form.descripcion" required></textarea>
+                        </label>
+                        <button type="submit" class="button button-full button-positive" ng-click="postPublicacion()" ng-disabled="escribirPublicacion.$invalid">
+                            SUBIR
+                        </button>
+                        <p ng-show="error" class="message error">{{error}}</p>
+                    </div>
+                </form>
+			</div>
+		</div>
+	</ion-content>
+</ion-modal-view>

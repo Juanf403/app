@@ -1,0 +1,16 @@
+
+- FEED 
+	diseño: al publicar utilizar el diseño del proyecto base
+
+- FORMULARIO DE AUTOS
+	diseño: usar el mismo diseño del proyecto base
+	campos:
+		MARCA
+		MODELO
+		AÑO
+		PRECIO
+		ESCRIBIR COMENTARIOS
+		+ AGREGAR FOTOS
+
+
+http://www.gajotres.net/accessing-image-galery-using-ionic-and-ngcordova/

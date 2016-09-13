@@ -1,0 +1,48 @@
+<ion-view view-title="{{post.titulo}}" class="post-details-view">
+  <ion-content overflow-scroll="true">
+    <div class="post-card-content">
+      <div class="item item-image">
+        <pre-img ratio="_1_1" helper-class="main-image">
+          <img ng-src="{{post.imagen}}" spinner-on-load>
+        </pre-img>
+      </div>
+      <div class="item item-body">
+        <h2 class="post-title">{{post.titulo}}</h2>
+      </div>
+      <div class="item item-avatar">
+        <div class="card-avatar-image-outer">
+          <a ui-sref="app.profile.posts({userId: post.idusuario})">
+            <pre-img ratio="_1_1" helper-class="avatar-image">
+              <img ng-src="{{ post.imagen }}" spinner-on-load>
+            </pre-img>
+          </a>
+        </div>
+        <a ui-sref="app.profile.posts({userId: post.idusuario})">
+          <h2 class="avatar-title">{{ post.nombre }}</h2>
+        </a>
+        <p class="avatar-description"><span am-time-ago="post.date"></span></p>
+          <a ui-sref="app.category_feed({ catid: post.idcategoria, subid: post.idsubcategoria })">
+            <span class="post-category {{ post.subcategoria }}">{{ post.subcategoria }}</span>
+          </a>
+      </div>
+      <div class="item item-body post-description-outer">
+        <p class="post-description">{{post.descripcion}}</p>
+      </div>
+    </div>
+  </ion-content>
+  <ion-footer-bar class="bar-stable">
+    <div class="row">
+      <div class="col col-50 col-center actions-col">
+        <button class="button button-icon theme-icon icon-like"></button>
+        <button ng-controller="CommentsCtrl" class="button button-icon theme-icon icon-bubble" ng-click="showComments(post)"></button>
+        <button class="button button-icon theme-icon icon-share" social-share share="post"></button>
+      </div>
+      <div class="col col-50 col-center brief-col">
+        <div class="actions-brief">
+          <a href="#" class="subdued">{{post.likes}} Me gusta</a>
+          <a ng-controller="CommentsCtrl" ng-click="showComments(post)" class="subdued">{{post.comentarios}} Comentarios</a>
+        </div>
+      </div>
+    </div>
+  </ion-footer-bar>
+</ion-view>

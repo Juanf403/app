@@ -1,0 +1,36 @@
+<ion-view class="feed-view" ng-class="{'filtered-feed': (is_trend_feed || is_category_feed)}">
+  <ion-nav-title>
+    <span ng-if="is_category_feed">{{ current_category.name }} asd</span>
+    <span ng-if="is_trend_feed">{{ current_trend.name }} Inicio</span>
+    <span ng-if="!is_trend_feed && !is_category_feed">Inicio</span>
+  </ion-nav-title>
+  <ion-content>
+    <!-- Refresh to get the new posts -->
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="getNewData()"></ion-refresher>
+
+    <div class="feed-cards-outer">
+
+      <div class="row" ng-if="is_category_feed">
+        <div class="col">
+          <a class="button button-small button-block button-outline" ng-click="escribirPublicacion()">
+            <i class="icon ion-upload"></i> ESCRIBIR PUBLICACION
+          </a>
+        </div>
+      </div>
+
+      <div ng-if="cards.length > 0" ng-repeat="card in cards" class="post-card-outer">
+        <!-- <section ng-include="'views/app/partials/feed-post-card.html'" class="post-card-outer"></section> -->
+        <section ng-include="'views/app/partials/feed-post-card.html'"></section>
+      </div>
+      <div ng-if="cards.length == 0" class="row row-center empty-feed-outer">
+        <div class="col">
+          <i class="empty-feed-icon icon ion-sad-outline"></i>
+          <h2 class="empty-feed-text">No hay publicaciones</h2>
+        </div>
+      </div>
+    </div>
+
+    <!-- Infinit scroll -->
+    <ion-infinite-scroll ng-if="moreDataCanBeLoaded()" on-infinite="loadMoreData()" distance="2%"></ion-infinite-scroll>
+  </ion-content>
+</ion-view>

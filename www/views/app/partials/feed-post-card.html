@@ -1,0 +1,46 @@
+<div class="card-1">
+  <div class="list card">
+    <div class="item item-image">
+      <a class="card-image-anchor" ui-sref="app.post({ postId: card.id })">
+        <pre-img ratio="_8_5" helper-class="main-image">
+          <img ng-src="{{ card.imagen }}" spinner-on-load>
+        </pre-img>
+      </a>
+    </div>
+    <div class="item item-body">
+      <a ui-sref="app.post({ postId: card.id })">
+        <h2 class="card-title">{{ card.titulo }}</h2>
+      </a>
+    </div>
+    <div class="item item-avatar">
+      <div class="card-avatar-image-outer">
+        <a ui-sref="app.profile.posts({userId: card.idusuario})">
+          <pre-img ratio="_1_1" helper-class="avatar-image">
+            <img ng-src="{{ card.imagenperfil }}" spinner-on-load>
+          </pre-img>
+        </a>
+      </div>
+      <a ui-sref="app.profile.posts({userId: card.idusuario})">
+        <h2 class="avatar-title">{{ card.nombre }}</h2>
+      </a>
+      <p class="avatar-description"><span am-time-ago="card.hora"></span></p>
+        <a ui-sref="app.category_feed({ catid: card.idcategoria, subid: card.idsubcategoria })">
+          <span class="card-tag post-category {{ card.category.name }}">{{ card.subcategoria }}</span>
+        </a>
+    </div>
+    <div class="actions-brief">
+      <a href="#" class="subdued">{{card.likes}} Me gusta</a>
+      <a ng-controller="CommentsCtrl" ng-click="showComments(card)" class="subdued">{{card.comentarios}} Comentarios</a>
+    </div>
+    <div class="item tabs tabs-icon-left">
+      <a class="tab-item" ng-class="{liked: card.liked}" href="#">
+        <i class="icon theme-icon icon-like"></i>
+        Me gusta
+      </a>
+      <a class="tab-item" ng-controller="CommentsCtrl" ng-click="showComments(card)">
+        <i class="icon theme-icon icon-bubble"></i>
+        Comentarios
+      </a>
+    </div>
+  </div>
+</div>
